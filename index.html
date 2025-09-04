@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Save the Date • 25/10/2025</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#a5b88c;     /* fundo oliva */
+  --paper:#ffffff;  /* cartões */
+  --ink:#54634a;    /* texto principal */
+  --muted:#5c5c5c;  /* texto secundário */
+  --accent:#b7a590; /* bege */
+  --leaf:#6d8b5f;   /* oliva claro (ícones/coração) */
+  --shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; color:var(--ink); background:
+    radial-gradient(1000px 520px at 90% -10%, rgba(183,122,91,.08), transparent),
+    radial-gradient(900px 520px at -10% 110%, rgba(227,201,182,.28), transparent),
+    var(--bg);
+  font-family:"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow-x:hidden;
+}
+
+/* ===== Layout ===== */
+.wrap{max-width:980px; margin:0 auto; padding:24px 18px 64px}
+.card{background:var(--paper); border-radius:24px; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,.05); position:relative}
+
+/* Header com flores estáticas */
+header.hero{position:relative; text-align:center; padding:70px 18px 34px}
+.hero-flower{
+  position:absolute; pointer-events:none; z-index:1;
+  opacity:.86; filter:saturate(.9) brightness(1.02) drop-shadow(0 10px 16px rgba(0,0,0,.08));
+  mix-blend-mode:multiply;
+}
+.hero-flower.left{  top:-46px; left:-22px; width:min(280px,26vw); transform:rotate(-4deg) }
+.hero-flower.right{ top:-52px; right:-24px; width:min(260px,24vw); transform:scaleX(-1) rotate(3deg) }
+
+.overline{letter-spacing:.28em; text-transform:uppercase; color:var(--accent); font-weight:700; font-size:.92rem; position:relative; z-index:2}
+h1{position:relative; z-index:2; font-family:"Playfair Display", Georgia, serif; font-size:clamp(2.3rem, 1.4rem + 3vw, 3.6rem); margin:.35rem 0 .25rem}
+.subtitle{position:relative; z-index:2; color:var(--muted)}
+.verse{position:relative; z-index:2; margin:16px auto 0; padding:12px 18px; color:var(--muted); font-style:italic}
+.verse strong{color:var(--accent); font-weight:700}
+
+/* Seções */
+section{padding:28px 20px}
+.grid{display:grid; gap:18px}
+@media (min-width:820px){ .grid{grid-template-columns:1fr 1fr} }
+
+/* ===== Calendário ===== */
+.calendar{
+  position:relative; overflow:visible;
+  max-width:640px; margin:26px auto 0; padding:18px;
+  border:1px solid rgba(0,0,0,.06); border-radius:18px; background:#fff;
+}
+.cal-head{
+  display:flex; align-items:center; gap:12px;
+  padding:10px 12px 12px; border-bottom:1px solid rgba(0,0,0,.06);
+}
+.cal-title{ display:flex; align-items:baseline; gap:10px; font-family:"Playfair Display", Georgia, serif; margin-inline:auto }
+.cal-month{ font-size:1.25rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ink); font-weight:700 }
+.cal-year{  font-size:1rem;  letter-spacing:.18em; text-transform:uppercase; color:var(--accent); font-weight:600 }
+
+.cal-legend{ display:flex; align-items:center; gap:8px; color:var(--leaf); font-weight:600; letter-spacing:.04em; white-space:nowrap }
+.cal-legend svg{ width:18px; height:18px }
+.cal-legend path{ fill:var(--leaf) }
+
+.cal-grid{ display:grid; grid-template-columns:repeat(7,1fr); gap:10px; padding:14px 10px 10px }
+.cal-weekday{
+  background:linear-gradient(180deg, rgba(227,201,182,.22), rgba(227,201,182,.10));
+  color:var(--accent); font-weight:800; border-radius:12px; padding:8px 0; text-align:center;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+.cal-day{ position:relative; min-height:72px; background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:12px }
+.cal-day .n{ position:absolute; top:8px; left:10px; color:var(--muted); font-size:1rem }
+
+/* Dia 25 com coração verdinho e número dentro */
+.cal-day.target{ display:grid; place-items:center; background:#fff; border:1px solid rgba(0,0,0,.12) }
+.cal-day.target .n{ position:static; z-index:2; color:#fff; font-weight:700; font-size:1.08rem }
+.heart{ position:absolute; inset:0; display:grid; place-items:center; z-index:1 }
+.heart svg{ width:48px; height:48px; filter:drop-shadow(0 3px 6px rgba(109,139,95,.28)) }
+.heart svg path{ fill:var(--leaf) }
+
+/* ===== Countdown (arrumado) ===== */
+.countdown{
+  display:grid; grid-template-columns:repeat(4, minmax(72px,1fr));
+  gap:12px; margin:16px 0 0; align-items:stretch;
+}
+.dd{
+  text-align:center; background:#fff; border:1px solid rgba(0,0,0,.06);
+  border-radius:12px; padding:12px 8px;
+}
+.dd strong{ display:block; font-size:1.6rem; line-height:1; letter-spacing:.02em }
+.dd span{ display:block; margin-top:4px; font-size:.86rem; color:var(--muted) }
+
+/* CTAs e infos */
+.cta-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:16px}
+.btn{display:flex; align-items:center; justify-content:center; gap:10px; text-decoration:none; padding:12px 16px; border-radius:14px; border:1px solid rgba(0,0,0,.08); background:linear-gradient(180deg,#fff,rgba(255,255,255,.86)); color:var(--ink); font-weight:700; box-shadow:var(--shadow); transition:transform .2s ease, box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.12)}
+.info{display:grid; gap:16px}
+.info .card-sec{padding:18px 16px; border:1px solid rgba(0,0,0,.06); border-radius:18px}
+.sec-title{font-family:"Playfair Display", Georgia, serif; font-size:1.25rem; color:var(--accent); margin:0 0 6px}
+.muted{color:var(--muted)}
+
+footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:.95rem}
+
+@media (min-width:1024px){
+  .hero-flower.left{ top:-56px; left:-28px; width:300px }
+  .hero-flower.right{ top:-60px; right:-30px; width:280px }
+}
+@media print{
+  .btn, .hero-flower{ display:none }
+  body{ background:#fff }
+  .card{ box-shadow:none; border:1px solid #ddd }
+}
+
+/* Dia 25 clicável */
+.cal-link{
+  text-decoration:none; color:inherit;
+  transition: box-shadow .2s ease, transform .2s ease;
+  display:grid; place-items:center;   /* garante o centro ao virar <a> */
+}
+.cal-link:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(109,139,95,.16);
+}
+.cal-link:focus-visible{
+  outline:2px solid var(--leaf);
+  outline-offset:2px;
+  border-radius:12px;
+}
+
+</style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card">
+      <header class="hero">
+        <!-- Flores do header (estáticas) -->
+        <img class="hero-flower left"  src="flor.png" alt="">
+        <img class="hero-flower right" src="flor.png" alt="">
+
+        <div class="overline">Save the Date</div>
+        <h1>Vamos nos casar!</h1>
+        <p class="subtitle">Sábado, <strong>25 de outubro de 2025</strong></p>
+
+        <div class="verse">
+          “<span>Grandes coisas fez o Senhor por nós, por isso estamos alegres.</span>”
+          <strong>Salmos 126:3</strong>
+        </div>
+      </header>
+
+      <!-- Calendário Outubro 2025 -->
+      <section class="calendar" aria-label="Calendário: Outubro de 2025">
+        <div class="cal-head">
+          <div class="cal-title">
+            <span class="cal-month">OUTUBRO</span>
+            <span class="cal-year">2025</span>
+          </div>
+          <div class="cal-legend">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.7-4.36-9.43-7.07a6 6 0 0 1 8.49-8.49L12 6.39l.94-.94a6 6 0 1 1 8.49 8.49C18.7 16.64 12 21 12 21z"/></svg>
+            <span>nosso grande dia</span>
+          </div>
+        </div>
+
+        <div class="cal-grid" role="grid" aria-readonly="true">
+          <!-- D S T Q Q S S -->
+          <div class="cal-weekday" role="columnheader">D</div>
+          <div class="cal-weekday" role="columnheader">S</div>
+          <div class="cal-weekday" role="columnheader">T</div>
+          <div class="cal-weekday" role="columnheader">Q</div>
+          <div class="cal-weekday" role="columnheader">Q</div>
+          <div class="cal-weekday" role="columnheader">S</div>
+          <div class="cal-weekday" role="columnheader">S</div>
+
+          <!-- Outubro 2025 começa na quarta -->
+          <div class="cal-day" aria-hidden="true"></div>
+          <div class="cal-day" aria-hidden="true"></div>
+          <div class="cal-day" aria-hidden="true"></div>
+
+          <!-- Dias -->
+          <div class="cal-day"><span class="n">1</span></div>
+          <div class="cal-day"><span class="n">2</span></div>
+          <div class="cal-day"><span class="n">3</span></div>
+          <div class="cal-day"><span class="n">4</span></div>
+          <div class="cal-day"><span class="n">5</span></div>
+          <div class="cal-day"><span class="n">6</span></div>
+          <div class="cal-day"><span class="n">7</span></div>
+          <div class="cal-day"><span class="n">8</span></div>
+          <div class="cal-day"><span class="n">9</span></div>
+          <div class="cal-day"><span class="n">10</span></div>
+          <div class="cal-day"><span class="n">11</span></div>
+          <div class="cal-day"><span class="n">12</span></div>
+          <div class="cal-day"><span class="n">13</span></div>
+          <div class="cal-day"><span class="n">14</span></div>
+          <div class="cal-day"><span class="n">15</span></div>
+          <div class="cal-day"><span class="n">16</span></div>
+          <div class="cal-day"><span class="n">17</span></div>
+          <div class="cal-day"><span class="n">18</span></div>
+          <div class="cal-day"><span class="n">19</span></div>
+          <div class="cal-day"><span class="n">20</span></div>
+          <div class="cal-day"><span class="n">21</span></div>
+          <div class="cal-day"><span class="n">22</span></div>
+          <div class="cal-day"><span class="n">23</span></div>
+          <div class="cal-day"><span class="n">24</span></div>
+
+          <!-- 25 com coração verdinho central e número dentro -->
+          <a class="cal-day target cal-link"
+   href="https://calendar.app.google/1geYVBQt23FoYPwW8"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Abrir agenda do grande dia: 25 de outubro de 2025">
+  <span class="heart" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M12 21s-6.7-4.36-9.43-7.07a6 6 0 0 1 8.49-8.49L12 6.39l.94-.94a6 6 0 1 1 8.49 8.49C18.7 16.64 12 21 12 21z"/></svg>
+  </span>
+  <span class="n">25</span>
+</a>
+
+          <div class="cal-day"><span class="n">26</span></div>
+          <div class="cal-day"><span class="n">27</span></div>
+          <div class="cal-day"><span class="n">28</span></div>
+          <div class="cal-day"><span class="n">29</span></div>
+          <div class="cal-day"><span class="n">30</span></div>
+          <div class="cal-day"><span class="n">31</span></div>
+        </div>
+      </section>
+
+      <!-- CTAs e INFORMAÇÕES -->
+      <section class="grid" style="padding-top:8px">
+        <div class="card-sec info">
+          <h3 class="sec-title">Informações principais</h3>
+          <p>O casamento acontecerá no dia <strong>25 de outubro de 2025</strong>, iniciando-se às <strong>17:00</strong>.<br>
+          Por favor, chegue com um pouquinho de antecedência: a cerimônia começará às <strong>17:30</strong> em ponto. 🌇</p>
+
+          <div class="cta-list">
+            <a class="btn" href="https://maps.app.goo.gl/u2wKyiFtuqe7dBweA" target="_blank" rel="noopener">📍 Local (Maps)</a>
+            <a class="btn" href="https://calendar.app.google/1geYVBQt23FoYPwW8" target="_blank" rel="noopener">🗓️ Adicionar à Agenda</a>
+            <a class="btn" href="https://site.lejour.com.br/lista-de-presentes/b-r" target="_blank" rel="noopener">💝 Abençoar</a>
+           <a class="btn"
+   href="https://api.whatsapp.com/send?phone=5518997628746&text=Oi%20Bru%21%20Confirmo%20minha%20presen%C3%A7a."
+   target="_blank" rel="noopener noreferrer">
+  💬 Confirmar presença com a Bruna
+</a>
+
+<a class="btn"
+   href="https://api.whatsapp.com/send?phone=5518988204889&text=Oi%20R%C3%AA%2C%20confirmo%20minha%20presen%C3%A7a."
+   target="_blank" rel="noopener noreferrer">
+  💬 Confirmar presença com o Renato
+</a>
+          </div>
+
+          <!-- Contagem regressiva -->
+          <div class="countdown" id="countdown" aria-live="polite">
+            <div class="dd"><strong id="dd">--</strong><span id="ddl">dias</span></div>
+            <div class="dd"><strong id="hh">--</strong><span id="hhl">horas</span></div>
+            <div class="dd"><strong id="mm">--</strong><span id="mml">min</span></div>
+            <div class="dd"><strong id="ss">--</strong><span id="ssl">seg</span></div>
+          </div>
+        </div>
+
+        <div class="card-sec info">
+          <h3 class="sec-title">Informações especiais</h3>
+
+<p class="muted">
+  Reforçamos com carinho que, em nosso casamento, não haverá nenhum tipo de bebida alcoólica, inclusive cervejas sem álcool. Pedimos, por gentileza, que não leve cooler nem se ausente para beber fora da festa. Agradecemos de coração pela compreensão e pelo respeito a este momento tão especial para nós 💖
+</p>
+
+<p class="muted">
+  Para os pequenos, teremos <strong>espaço kids</strong> para que possam se divertir com segurança enquanto aproveitamos a festa.
+</p>
+
+<p class="muted">
+  Nossa lista de presentes será simbólica. Não receberemos presentes físicos. Optamos por recebê-los em <strong>PIX</strong>, pois nos ajuda muito mais.
+</p>
+
+<p class="muted">
+  Caso sinta em seu coração de nos abençoar, deixaremos o link da lista e a nossa <strong>chave PIX</strong>:
+</p>
+          <p><strong>CHAVE PIX:</strong> <span class="muted">(18997628746 - Banco Neon)</span></p>
+        </div>
+      </section>
+
+      <footer> Estamos ansiosos para viver este dia incrível ao lado de pessoas que amamos, esperamos por você!</footer>
+    </section>
+  </main>
+
+<script>
+  // ===== Contagem regressiva (PT-BR com plural e zero-padding) =====
+  const alvo = new Date('2025-10-25T17:30:00-03:00').getTime();
+  const pad2 = n => String(n).padStart(2,'0');
+  const plural = (n, s, p) => n===1 ? s : p;
+
+  function tick(){
+    const now = Date.now();
+    let dist = Math.max(0, alvo - now);
+
+    const d = Math.floor(dist / (1000*60*60*24)); dist -= d*(1000*60*60*24);
+    const h = Math.floor(dist / (1000*60*60));    dist -= h*(1000*60*60);
+    const m = Math.floor(dist / (1000*60));       dist -= m*(1000*60);
+    const s = Math.floor(dist / 1000);
+
+    dd.textContent = d;        hh.textContent = pad2(h);
+    mm.textContent = pad2(m);  ss.textContent = pad2(s);
+
+    ddl.textContent = plural(d,'dia','dias');
+    hhl.textContent = plural(h,'hora','horas');
+    mml.textContent = 'min';
+    ssl.textContent = 'seg';
+
+    countdown.setAttribute('aria-label',
+      `Faltam ${d} ${plural(d,'dia','dias')}, ${h} ${plural(h,'hora','horas')}, ${m} minutos e ${s} segundos.`);
+  }
+  tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>

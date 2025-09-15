@@ -211,6 +211,33 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
   }
 }
 
+.pix-box {
+  display: inline-block;
+  padding: 14px 20px;
+  margin-top: 12px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff, #f9f9f9);
+  border: 2px solid var(--leaf);
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.pix-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.16);
+}
+
+.pix-box .pix-key {
+  font-size: 1.1rem;
+  color: var(--leaf);
+  font-weight: 700;
+}
+
 </style>
 </head>
 
@@ -316,7 +343,7 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
           <div class="cta-list">
             <a class="btn" href="https://maps.app.goo.gl/u2wKyiFtuqe7dBweA" target="_blank" rel="noopener">📍 Local (Maps)</a>
             <a class="btn" href="https://calendar.app.google/1geYVBQt23FoYPwW8" target="_blank" rel="noopener">🗓️ Adicionar à Agenda</a>
-            <a class="btn" href="https://site.lejour.com.br/lista-de-presentes/b-r" target="_blank" rel="noopener">💝 Abençoar</a>
+            <a class="btn" href="https://site.lejour.com.br/lista-de-presentes/b-r" target="_blank" rel="noopener">🎁 Presentear os noivos</a>
            <a class="btn"
    href="https://api.whatsapp.com/send?phone=5518997628746&text=Oi%20Bru%21%20Confirmo%20minha%20presen%C3%A7a."
    target="_blank" rel="noopener noreferrer">
@@ -357,9 +384,10 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
 <p class="muted">
   Caso sinta em seu coração de nos abençoar, deixaremos o link da lista e a nossa <strong>chave PIX</strong>:
 </p>
-          <p><strong>CHAVE PIX:</strong><br>
-  <span class="pix-key muted">(18) 997628746 - Banco Neon</span>
-</p>
+          <div class="pix-box">
+  <div><strong>CHAVE PIX:</strong></div>
+  <div class="pix-key">(18) 997628746 - Banco Neon</div>
+</div>
         </div>
       </section>
 

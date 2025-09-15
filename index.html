@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Save the Date • 25/10/2025</title>
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -145,47 +147,37 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
 /* ===== Ajustes responsivos para mobile ===== */
 @media (max-width: 680px){
   header.hero{
-    padding:90px 12px 32px;   /* menos espaço em cima, aproxima texto e flores */
-    position: relative;
-    z-index: 2;
+    padding:96px 14px 28px;   /* aproxima o texto das flores */
+    position:relative;
+    z-index:2;                /* texto sempre por cima */
   }
 
   .hero-flower{
-    opacity:.5;                /* suaviza para não brigar com o texto */
-    z-index: 1;
+    opacity:.55;              /* grande, mas suave atrás do texto */
+    z-index:1;
+    filter:saturate(.9) brightness(1.03);
   }
 
   .hero-flower.left{
-    top:-40px;                 /* mais baixo, perto do título */
-    left:-35px;
-    width:140vw;               /* MUITO maior */
+    top:-22px;                /* traz para perto do título */
+    left:-48px;
+    width:135vw;              /* bem grande no mobile */
     max-width:none;
   }
+
   .hero-flower.right{
-    top:-46px;
-    right:-35px;
-    width:135vw;
+    top:-28px;
+    right:-48px;
+    width:130vw;
     max-width:none;
   }
 }
 
 /* Telas bem estreitas */
 @media (max-width:420px){
-  header.hero{ padding-top:100px; }
-  .hero-flower.left{ top:-30px; width:160vw; }
-  .hero-flower.right{ top:-36px; width:155vw; }
-}
-
-/* Muito estreitos (até ~420px) – reduz mais e, se preciso, esconde a direita */
-@media (max-width: 420px){
-  header.hero{ padding-top:92px; }
-  .hero-flower.left{  top:-72px; width:36vw; max-width:130px; opacity:.6 }
-  .hero-flower.right{ top:-76px; width:30vw; max-width:110px; opacity:.6 }
-}
-
-/* 360–380px: some com a direita (fica leve e legível) */
-@media (max-width: 380px){
-  .hero-flower.right{ display:none }
+  header.hero{ padding-top:108px; }
+  .hero-flower.left{  top:-14px; left:-56px; width:160vw; }
+  .hero-flower.right{ top:-20px; right:-56px; width:155vw; }
 }
 
 @media (max-width: 520px){
@@ -292,6 +284,11 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
   .pix-box > strong{ font-size:1rem; }
   .pix-box .pix-key{ font-size:1.05rem; }
 }
+
+h1{
+  text-shadow:0 1px 0 #fff, 0 0 22px rgba(255,255,255,.65);
+}
+
 </style>
 </head>
 

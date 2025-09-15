@@ -145,36 +145,36 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
 /* ===== Ajustes responsivos para mobile ===== */
 @media (max-width: 680px){
   header.hero{
-    padding:100px 12px 28px;   /* mais espaço no topo */
+    padding:120px 12px 32px;   /* mais espaço no topo */
     position: relative;
-    z-index: 2;                /* texto sempre acima */
+    z-index: 2;
   }
 
   .hero-flower{
-    opacity:.5;                /* suaviza */
-    z-index: 1;                /* fica atrás do texto */
-    filter: saturate(.8) brightness(1.05) blur(0.4px);
+    opacity:.55;                /* suaviza pra não brigar com o texto */
+    z-index: 1;
+    filter: saturate(.85) brightness(1.05);
   }
 
   .hero-flower.left{
-    top:-40px;
-    left:-12px;
-    width:52vw;                /* continua grande */
-    max-width:220px;
+    top:-70px;
+    left:-20px;
+    width:70vw;                 /* BEM maior */
+    max-width:320px;
   }
   .hero-flower.right{
-    top:-44px;
-    right:-12px;
-    width:48vw;
-    max-width:200px;
+    top:-76px;
+    right:-20px;
+    width:66vw;
+    max-width:300px;
   }
 }
 
 /* Telas bem estreitas */
 @media (max-width:420px){
-  header.hero{ padding-top:110px; }
-  .hero-flower.left{ width:50vw; max-width:190px; }
-  .hero-flower.right{ width:46vw; max-width:170px; }
+  header.hero{ padding-top:130px; }
+  .hero-flower.left{ width:72vw; max-width:280px; }
+  .hero-flower.right{ width:68vw; max-width:260px; }
 }
 
 /* Muito estreitos (até ~420px) – reduz mais e, se preciso, esconde a direita */

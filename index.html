@@ -211,33 +211,50 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
   }
 }
 
-.pix-box {
-  display: inline-block;
-  padding: 14px 20px;
-  margin-top: 12px;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #fff, #f9f9f9);
-  border: 2px solid var(--leaf);
-  box-shadow: 0 6px 18px rgba(0,0,0,.12);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--ink);
-  text-align: center;
-  cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
+/* === PIX em destaque (desktop & mobile) === */
+.pix-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:520px;           /* impede ficar exagerado em telas largas */
+  margin:12px auto 0;        /* centraliza */
+  padding:18px 16px;
+  border-radius:16px;
+  background:#fff;
+  border:2px solid var(--leaf);
+  box-shadow:0 6px 18px rgba(0,0,0,.10);
+  text-align:center;
+  font-weight:700;
+  gap:4px;
 }
 
-.pix-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.16);
+.pix-box > strong{
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:1.05rem;
+  color:var(--ink);
 }
 
-.pix-box .pix-key {
-  font-size: 1.1rem;
-  color: var(--leaf);
-  font-weight: 700;
+.pix-box .pix-key{
+  font-size:1.1rem;
+  color:var(--leaf);
+  line-height:1.35;
+  word-break:break-word;     /* evita quebrar feio em números longos */
 }
 
+/* — Ajustes só para celular — */
+@media (max-width:520px){
+  .pix-box{
+    max-width:100%;
+    padding:16px 14px;
+    border-radius:14px;
+    box-shadow:0 4px 14px rgba(0,0,0,.10);
+  }
+  .pix-box > strong{ font-size:1rem; }
+  .pix-box .pix-key{ font-size:1.05rem; }
+}
 </style>
 </head>
 

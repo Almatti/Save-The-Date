@@ -144,28 +144,37 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
 
 /* ===== Ajustes responsivos para mobile ===== */
 @media (max-width: 680px){
-  .wrap{ padding:18px 14px 48px }
   header.hero{
-    padding:84px 12px 28px;   /* + espaço no topo p/ não encostar no texto */
+    padding:100px 12px 28px;   /* mais espaço no topo */
+    position: relative;
+    z-index: 2;                /* texto sempre acima */
   }
-  .subtitle{ font-size: .98rem }
-  .verse{ font-size:.95rem; padding:10px 12px }
 
-  /* Flores: menores, mais para cima e mais transparentes */
+  .hero-flower{
+    opacity:.5;                /* suaviza */
+    z-index: 1;                /* fica atrás do texto */
+    filter: saturate(.8) brightness(1.05) blur(0.4px);
+  }
+
   .hero-flower.left{
-    top:-64px;                /* sobe mais */
-    left:-18px;
-    width:38vw;               /* menor */
-    max-width:150px;
-    opacity:.65;              /* menos contraste atrás do texto */
+    top:-40px;
+    left:-12px;
+    width:52vw;                /* continua grande */
+    max-width:220px;
   }
   .hero-flower.right{
-    top:-68px;
-    right:-14px;
-    width:34vw;
-    max-width:135px;
-    opacity:.65;
+    top:-44px;
+    right:-12px;
+    width:48vw;
+    max-width:200px;
   }
+}
+
+/* Telas bem estreitas */
+@media (max-width:420px){
+  header.hero{ padding-top:110px; }
+  .hero-flower.left{ width:50vw; max-width:190px; }
+  .hero-flower.right{ width:46vw; max-width:170px; }
 }
 
 /* Muito estreitos (até ~420px) – reduz mais e, se preciso, esconde a direita */

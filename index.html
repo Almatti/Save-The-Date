@@ -50,6 +50,9 @@ h1{position:relative; z-index:2; font-family:"Playfair Display", Georgia, serif;
 .subtitle{position:relative; z-index:2; color:var(--muted)}
 .verse{position:relative; z-index:2; margin:16px auto 0; padding:12px 18px; color:var(--muted); font-style:italic}
 .verse strong{color:var(--accent); font-weight:700}
+.overline{
+  text-shadow: 0 1px 0 #fff, 0 0 12px rgba(255,255,255,.7);
+}
 
 /* Seções */
 section{padding:28px 20px}
@@ -142,13 +145,39 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
 /* ===== Ajustes responsivos para mobile ===== */
 @media (max-width: 680px){
   .wrap{ padding:18px 14px 48px }
-  header.hero{ padding:56px 12px 28px }
+  header.hero{
+    padding:84px 12px 28px;   /* + espaço no topo p/ não encostar no texto */
+  }
   .subtitle{ font-size: .98rem }
   .verse{ font-size:.95rem; padding:10px 12px }
 
-  /* Flores: encolhe e evita sobreposição */
-  .hero-flower.left{  top:-32px; left:-16px; width:42vw; max-width:180px }
-  .hero-flower.right{ top:-36px; right:-14px; width:38vw; max-width:160px }
+  /* Flores: menores, mais para cima e mais transparentes */
+  .hero-flower.left{
+    top:-64px;                /* sobe mais */
+    left:-18px;
+    width:38vw;               /* menor */
+    max-width:150px;
+    opacity:.65;              /* menos contraste atrás do texto */
+  }
+  .hero-flower.right{
+    top:-68px;
+    right:-14px;
+    width:34vw;
+    max-width:135px;
+    opacity:.65;
+  }
+}
+
+/* Muito estreitos (até ~420px) – reduz mais e, se preciso, esconde a direita */
+@media (max-width: 420px){
+  header.hero{ padding-top:92px; }
+  .hero-flower.left{  top:-72px; width:36vw; max-width:130px; opacity:.6 }
+  .hero-flower.right{ top:-76px; width:30vw; max-width:110px; opacity:.6 }
+}
+
+/* 360–380px: some com a direita (fica leve e legível) */
+@media (max-width: 380px){
+  .hero-flower.right{ display:none }
 }
 
 @media (max-width: 520px){

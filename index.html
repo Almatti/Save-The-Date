@@ -38,7 +38,7 @@ body{
 .card{background:var(--paper); border-radius:24px; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,.05); position:relative}
 
 /* Header com flores estáticas */
-header.hero{position:relative; text-align:center; padding:56px 18px 34px}
+header.hero{position:relative; text-align:center; padding:44px 18px 28px}
 .hero-flower{
   position:absolute; pointer-events:none; z-index:1;
   opacity:.86; filter:saturate(.9) brightness(1.02) drop-shadow(0 10px 16px rgba(0,0,0,.08));
@@ -186,30 +186,24 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
 /* ===== Ajustes responsivos para mobile ===== */
 @media (max-width: 680px){
   header.hero{
-    padding:72px 14px 24px;   /* menos espaço em cima */
+    padding:48px 14px 20px;   /* ↓ menos espaço em cima */
     position:relative;
     z-index:2;
   }
 
-  .hero-flower.left{
-    top:-60px;                /* sobe bem a flor esquerda */
-    left:-48px;
-    width:135vw;
-    max-width:none;
-  }
+  /* sobe as flores para “preencher” o topo */
+  .hero-flower.left{  top:-92px; left:-48px; width:135vw; max-width:none; }
+  .hero-flower.right{ top:-98px; right:-48px; width:130vw; max-width:none; }
 
-  .hero-flower.right{
-    top:-66px;                /* sobe bem a flor direita */
-    right:-48px;
-    width:130vw;
-    max-width:none;
-  }
+  /* puxa a caixinha de texto um pouco para cima */
+  .hero-text{ margin-top:-18px; }
 }
 
 @media (max-width:420px){
-  header.hero{ padding-top:82px; } /* menos padding ainda */
-  .hero-flower.left{  top:-48px; left:-56px; width:160vw; }
-  .hero-flower.right{ top:-54px; right:-56px; width:155vw; }
+  header.hero{ padding-top:64px; } /* ↓ ainda menos topo */
+  .hero-flower.left{  top:-78px; left:-56px; width:160vw; }
+  .hero-flower.right{ top:-84px; right:-56px; width:155vw; }
+  .hero-text{ margin-top:-20px; }
 }
 
 @media (max-width: 520px){

@@ -38,14 +38,14 @@ body{
 .card{background:var(--paper); border-radius:24px; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,.05); position:relative}
 
 /* Header com flores estáticas */
-header.hero{position:relative; text-align:center; padding:70px 18px 34px}
+header.hero{position:relative; text-align:center; padding:56px 18px 34px}
 .hero-flower{
   position:absolute; pointer-events:none; z-index:1;
   opacity:.86; filter:saturate(.9) brightness(1.02) drop-shadow(0 10px 16px rgba(0,0,0,.08));
   mix-blend-mode:multiply;
 }
-.hero-flower.left{  top:-46px; left:-22px; width:min(280px,26vw); transform:rotate(-4deg) }
-.hero-flower.right{ top:-52px; right:-24px; width:min(260px,24vw); transform:scaleX(-1) rotate(3deg) }
+.hero-flower.left{  top:-80px; left:-22px; width:min(280px,26vw); transform:rotate(-4deg) }
+.hero-flower.right{ top:-86px; right:-24px; width:min(260px,24vw); transform:scaleX(-1) rotate(3deg) }
 
 .overline{letter-spacing:.28em; text-transform:uppercase; color:var(--accent); font-weight:700; font-size:.92rem; position:relative; z-index:2}
 h1{position:relative; z-index:2; font-family:"Playfair Display", Georgia, serif; font-size:clamp(2.3rem, 1.4rem + 3vw, 3.6rem); margin:.35rem 0 .25rem}
@@ -73,7 +73,14 @@ section{padding:28px 20px}
 }
 .cal-title{ display:flex; align-items:baseline; gap:10px; font-family:"Playfair Display", Georgia, serif; margin-inline:auto }
 .cal-month{ font-size:1.25rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ink); font-weight:700 }
-.cal-year{  font-size:1rem;  letter-spacing:.18em; text-transform:uppercase; color:var(--accent); font-weight:600 }
+.cal-year{
+  font-size:1rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink);     /* antes era var(--accent) */
+  font-weight:700;      /* deixa mais marcante */
+  text-shadow:0 1px 0 #fff, 0 0 8px rgba(255,255,255,.6); /* brilho leve */
+}
 
 .cal-legend{ display:flex; align-items:center; gap:8px; color:var(--leaf); font-weight:600; letter-spacing:.04em; white-space:nowrap }
 .cal-legend svg{ width:18px; height:18px }
@@ -118,10 +125,11 @@ section{padding:28px 20px}
 
 footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:.95rem}
 
-@media (min-width:1024px){
-  .hero-flower.left{ top:-56px; left:-28px; width:300px }
-  .hero-flower.right{ top:-60px; right:-30px; width:280px }
+@media (max-width: 680px){
+  .hero-flower.left{ top:-42px; left:-48px; width:135vw; }
+  .hero-flower.right{ top:-48px; right:-48px; width:130vw; }
 }
+
 @media print{
   .btn, .hero-flower{ display:none }
   body{ background:#fff }
@@ -301,6 +309,7 @@ h1{
   box-shadow: 0 10px 28px rgba(0,0,0,.12);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+  margin-top: -14px; /* sobe o bloco cerca de 14px */
 }
 
 /* Ajuste de espaçamentos internos da placa */

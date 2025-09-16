@@ -72,24 +72,45 @@ section{padding:28px 20px}
   padding:10px 12px 12px; border-bottom:1px solid rgba(0,0,0,.06);
 }
 .cal-title{ display:flex; align-items:baseline; gap:10px; font-family:"Playfair Display", Georgia, serif; margin-inline:auto }
+/* Título do mês/ano bem legível sobre a flor, sem caixa opaca */
 .cal-month,
 .cal-year{
   position: relative;
-  z-index: 3; /* garante sobreposição à flor */
+  z-index: 3;                 /* acima das flores */
   color: var(--ink);
   font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: .28em;
   text-transform: uppercase;
+  letter-spacing: .28em;
+  /* brilho/contorno que realça o texto */
+  text-shadow:
+    0 1px 0 #fff,
+    0 0 8px rgba(255,255,255,.85),
+    0 0 14px rgba(255,255,255,.65);
+  -webkit-text-stroke: .4px rgba(255,255,255,.7); /* contorno sutil (Chrome/Android) */
+}
 
-  /* “grifo” atrás do texto */
-  background: rgba(255,255,255,.85);
-  padding: 2px 6px;
-  border-radius: 6px;
-
-  /* brilho suave */
-  text-shadow: 0 1px 0 #fff,
-  0 0 8px rgba(255,255,255,.8);
+/* Faixa “grifada” translúcida atrás do texto (não tapa a flor) */
+.cal-head{ position: relative; }
+.cal-title{
+  position: relative;
+  z-index: 2; /* texto acima da faixa */
+}
+.cal-title::before{
+  content:"";
+  position:absolute;
+  left: -6px; right: -6px;
+  top: 50%;
+  height: .8em;
+  transform: translateY(-45%);
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,.55),
+    rgba(255,255,255,.38),
+    rgba(255,255,255,.55)
+  );
+  border-radius: 8px;
+  z-index: 1;                /* faixa atrás do texto */
+  pointer-events:none;
 }
 
 .cal-legend{ display:flex; align-items:center; gap:8px; color:var(--leaf); font-weight:600; letter-spacing:.04em; white-space:nowrap }
@@ -344,7 +365,7 @@ h1{
 }
 
 /* Muito estreito: se precisar, some com a flor da direita */
-@media (max-width:380px){
+@media (max-width:340px){
   .hero-flower.right{ display:none; }
 }
 

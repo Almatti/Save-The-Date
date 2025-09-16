@@ -186,37 +186,30 @@ footer{text-align:center; color:var(--muted); padding:20px 12px 40px; font-size:
 /* ===== Ajustes responsivos para mobile ===== */
 @media (max-width: 680px){
   header.hero{
-    padding:96px 14px 28px;   /* aproxima o texto das flores */
+    padding:72px 14px 24px;   /* menos espaço em cima */
     position:relative;
-    z-index:2;                /* texto sempre por cima */
-  }
-
-  .hero-flower{
-    opacity:.55;              /* grande, mas suave atrás do texto */
-    z-index:1;
-    filter:saturate(.9) brightness(1.03);
+    z-index:2;
   }
 
   .hero-flower.left{
-    top:-22px;                /* traz para perto do título */
+    top:-60px;                /* sobe bem a flor esquerda */
     left:-48px;
-    width:135vw;              /* bem grande no mobile */
+    width:135vw;
     max-width:none;
   }
 
   .hero-flower.right{
-    top:-28px;
+    top:-66px;                /* sobe bem a flor direita */
     right:-48px;
     width:130vw;
     max-width:none;
   }
 }
 
-/* Telas bem estreitas */
 @media (max-width:420px){
-  header.hero{ padding-top:108px; }
-  .hero-flower.left{  top:-14px; left:-56px; width:160vw; }
-  .hero-flower.right{ top:-20px; right:-56px; width:155vw; }
+  header.hero{ padding-top:82px; } /* menos padding ainda */
+  .hero-flower.left{  top:-48px; left:-56px; width:160vw; }
+  .hero-flower.right{ top:-54px; right:-56px; width:155vw; }
 }
 
 @media (max-width: 520px){

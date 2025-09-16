@@ -289,27 +289,68 @@ h1{
   text-shadow:0 1px 0 #fff, 0 0 22px rgba(255,255,255,.65);
 }
 
+/* --- Placa de destaque para o texto do cabeçalho --- */
+.hero-text{
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  max-width: 720px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 10px 28px rgba(0,0,0,.12);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Ajuste de espaçamentos internos da placa */
+.hero-text .overline{ margin-top: 2px; display:block; }
+.hero-text h1{ margin: .35rem 0 .25rem; }
+.hero-text .subtitle{ margin: 0 0 .25rem; }
+.hero-text .verse{ margin: 10px 0 0; padding: 8px 0 0; }
+
+/* Mobile: flores mais suaves e mistura desativada para não “lavar” o texto */
+@media (max-width:680px){
+  .hero-flower{
+    opacity: .32 !important;
+    mix-blend-mode: normal;   /* antes estava multiply */
+    z-index: 1;               /* mantém atrás */
+  }
+  .hero-text{
+    padding: 16px 16px;
+    background: rgba(255,255,255,.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.12);
+  }
+}
+
+/* Muito estreito: se precisar, some com a flor da direita */
+@media (max-width:380px){
+  .hero-flower.right{ display:none; }
+}
+
 </style>
 </head>
 
 <body>
   <main class="wrap">
     <section class="card">
-      <header class="hero">
-        <!-- Flores do header (estáticas) -->
-        <img class="hero-flower left"  src="flor.png" alt="">
-        <img class="hero-flower right" src="flor.png" alt="">
+     <header class="hero">
+  <img class="hero-flower left"  src="flor.png" alt="">
+  <img class="hero-flower right" src="flor.png" alt="">
 
-        <div class="overline">Save the Date</div>
-        <h1>Vamos nos casar!</h1>
-        <p class="subtitle">Sábado, <strong>25 de outubro de 2025</strong></p>
+  <!-- NOVO: caixa que dá destaque ao texto -->
+  <div class="hero-text">
+    <div class="overline">Save the Date</div>
+    <h1>Vamos nos casar!</h1>
+    <p class="subtitle">Sábado, <strong>25 de outubro de 2025</strong></p>
 
-        <div class="verse">
-          “<span>Grandes coisas fez o Senhor por nós, por isso estamos alegres.</span>”
-          <strong>Salmos 126:3</strong>
-        </div>
-      </header>
-
+    <div class="verse">
+      “<span>Grandes coisas fez o Senhor por nós, por isso estamos alegres.</span>”
+      <strong>Salmos 126:3</strong>
+    </div>
+  </div>
+</header>
       <!-- Calendário Outubro 2025 -->
       <section class="calendar" aria-label="Calendário: Outubro de 2025">
         <div class="cal-head">

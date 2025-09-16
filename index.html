@@ -72,14 +72,24 @@ section{padding:28px 20px}
   padding:10px 12px 12px; border-bottom:1px solid rgba(0,0,0,.06);
 }
 .cal-title{ display:flex; align-items:baseline; gap:10px; font-family:"Playfair Display", Georgia, serif; margin-inline:auto }
-.cal-month{ font-size:1.25rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ink); font-weight:700 }
+.cal-month,
 .cal-year{
-  font-size:1rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--ink);     /* antes era var(--accent) */
-  font-weight:700;      /* deixa mais marcante */
-  text-shadow:0 1px 0 #fff, 0 0 8px rgba(255,255,255,.6); /* brilho leve */
+  position: relative;
+  z-index: 3; /* garante sobreposição à flor */
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+
+  /* “grifo” atrás do texto */
+  background: rgba(255,255,255,.85);
+  padding: 2px 6px;
+  border-radius: 6px;
+
+  /* brilho suave */
+  text-shadow: 0 1px 0 #fff,
+  0 0 8px rgba(255,255,255,.8);
 }
 
 .cal-legend{ display:flex; align-items:center; gap:8px; color:var(--leaf); font-weight:600; letter-spacing:.04em; white-space:nowrap }
